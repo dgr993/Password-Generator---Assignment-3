@@ -12,7 +12,10 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
+var spchar = ["!#$%^&*()?/\=+"]
+var lowalph =["abcdefghijklmnopqrstuvwxyz"]
+var uppalph =["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+var numbers =["0123456789"]
 
 /*
   var spchar = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","["]
