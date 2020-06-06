@@ -28,8 +28,8 @@ var numbers =["0123456789"]
       } 
       else {
         alert("Choose a length that is between 8 to 128 characters");
-        passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
         console.log(passwordLength);
+        generatePassword ();
       }
     
       //Password Upper Case question
