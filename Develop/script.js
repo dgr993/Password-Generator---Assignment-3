@@ -2,56 +2,96 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword(arr) {
-  var password = generatePassword(arr);
+function writePassword() {
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
-  var spchar = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-  var lowalph = "abcdefghijklmnopqrstuvwxyz"
-  var uppalph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  for (var i = 0; i < 1; i++) {
-    var num = Math.floor(Math.random()*10);
-    console.log(num);
-    
-  }
 
+  passwordText.value = password;
+
+}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+
+/*
+  var spchar = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","["]
+  var lowalph = ["a","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+  var uppalph = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  var numbers = ["0","1","2","3","4","5","6","7","8","9"]
+  var developPassword = ""
+*/
+/*
+function grabvar (arr){
+i=0;i<arr.length;i++;
+var arr = Math.floor(Math.random() * arr.length) + 1;
+}
+grabvar(spchar)
+*/
+
+  function generatePassword(){
   //  Character Length question
-  var passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.") 
-  if (passwordLength > 7 && (passwordLength < 129)) {
-    console.log(passwordLength);
-  } else {alert("Choose a length that is between 8 to 128 characters");
-    main() }
- 
+  var passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
+  if (passwordLength > 7 && passwordLength < 129) {
 
+    console.log(passwordLength);
+  } 
+  else {
+    alert("Choose a length that is between 8 to 128 characters");
+    passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
+    console.log(passwordLength);
+  }
+ 
   //Password Upper Case question
   var passwordUpper = confirm("Do you want upper case letters in your password?");
   if (passwordUpper) {
-    console.log(upper)
-  };
+    developPassword+=uppalph
+    console.log(developPassword)
+  }
+  
 
   //Password Lower Case question
   var passwordLower = confirm("Do you want lower case letters in your password?");
   if (passwordLower) {
-    console.log(lower)
-  };
+    developPassword+=lowalph
+    console.log(developPassword)
+  }
+  
 
   //Password Upper Case question
   var passwordSpecial = confirm("Do you want special characters in your password?");
   if (passwordSpecial) {
-    console.log(symbol)
-  };
+    developPassword+=spchar
+    console.log(developPassword)
+  }
+  
 
   //Password Number question
   var passwordNumber = confirm("Do you want numbers in your password?");
   if (passwordNumber) {
-    console.log(num)
-  };
-  function questions(quest){
+    developPassword+=numbers
+    console.log(developPassword)
 
   }
-  passwordText.value = password;
+
+  //check if user chose at least one character type
+  if (developPassword === ""){
+  alert("You must include at least one character type");
+  return generatePassword();
+  }
   
-  } 
+
+
+  var num="";
+  for (var i = 0; i < passwordLength; i++) {
+    num += developPassword.charAt(Math.floor(Math.random()*developPassword.length)+1);
+    console.log(num);
+  }
+    return num
+  }
+
+  
+  
   
   
 
@@ -60,5 +100,4 @@ function writePassword(arr) {
 
 
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
