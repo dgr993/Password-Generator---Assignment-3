@@ -16,10 +16,11 @@ var spchar = ["!#$%^&*()?/\=+"]
 var lowalph =["abcdefghijklmnopqrstuvwxyz"]
 var uppalph =["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 var numbers =["0123456789"]
-var developPassword =""
+
 
   function generatePassword(){
   //  Character Length question
+      var developPassword =[]
       var passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
       if (passwordLength > 7 && passwordLength < 129) {
 
