@@ -16,9 +16,74 @@ var spchar = ["!#$%^&*()?/\=+"]
 var lowalph =["abcdefghijklmnopqrstuvwxyz"]
 var uppalph =["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 var numbers =["0123456789"]
-var developPassword = "";
+var developPassword =""
 
-/*
+  function generatePassword(){
+  //  Character Length question
+      var passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
+      if (passwordLength > 7 && passwordLength < 129) {
+
+        console.log(passwordLength);
+      } 
+      else {
+        alert("Choose a length that is between 8 to 128 characters");
+        passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
+        console.log(passwordLength);
+      }
+    
+      //Password Upper Case question
+      var passwordUpper = confirm("Do you want upper case letters in your password?");
+      if (passwordUpper) {
+        developPassword+=uppalph;
+        console.log(developPassword);
+      }
+      
+      
+
+      //Password Lower Case question
+      var passwordLower = confirm("Do you want lower case letters in your password?");
+      if (passwordLower) {
+        developPassword+=lowalph;
+        console.log(developPassword);
+      }
+      
+
+      //Password Upper Case question
+      var passwordSpecial = confirm("Do you want special characters in your password?");
+      if (passwordSpecial) {
+        developPassword+=spchar;
+        console.log(developPassword);
+      }
+      
+
+      //Password Number question
+      var passwordNumber = confirm("Do you want numbers in your password?");
+      if (passwordNumber) {
+        developPassword+=numbers;
+        console.log(developPassword);
+      }
+      
+
+      //check if user chose at least one character type
+      if (developPassword ===""){
+      alert("You must include at least one character type");
+      generatePassword();
+      }
+  
+
+  //create the password user sees with all the inputs compiled above in variable
+    var num="";
+    for (var i = 0; i < passwordLength; i++) {
+      num += developPassword.charAt(Math.floor(Math.random()*developPassword.length));
+      console.log(num);
+    }
+    return num
+  }
+
+  
+  /* another avenue i tried going down that ulimately failed but i still wanted
+  to include it for my own records if i ever go back later.
+
   var spchar = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","["]
   var lowalph = ["a","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
   var uppalph = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -32,71 +97,6 @@ var arr = Math.floor(Math.random() * arr.length) + 1;
 }
 grabvar(spchar)
 */
-
-  function generatePassword(){
-  //  Character Length question
-  var passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
-  if (passwordLength > 7 && passwordLength < 129) {
-
-    console.log(passwordLength);
-  } 
-  else {
-    alert("Choose a length that is between 8 to 128 characters");
-    passwordLength = prompt("How many characters do you want for you password? Note: Must be between 8 to 128.");
-    console.log(passwordLength);
-  }
- 
-  //Password Upper Case question
-  var passwordUpper = confirm("Do you want upper case letters in your password?");
-  if (passwordUpper==="true") {
-    developPassword+=uppalph;
-    console.log(developPassword);
-  }
-  
-  
-
-  //Password Lower Case question
-  var passwordLower = confirm("Do you want lower case letters in your password?");
-  if (passwordLower==="true") {
-    developPassword+=lowalph;
-    console.log(developPassword);
-  }
-  
-
-  //Password Upper Case question
-  var passwordSpecial = confirm("Do you want special characters in your password?");
-  if (passwordSpecial==="true") {
-    developPassword+=spchar;
-    console.log(developPassword);
-  }
-  
-
-  //Password Number question
-  var passwordNumber = confirm("Do you want numbers in your password?");
-  if (passwordNumber==="true") {
-    developPassword+=numbers;
-    console.log(developPassword);
-  }
-  
-
-  //check if user chose at least one character type
-  if (developPassword === ""){
-  alert("You must include at least one character type");
-  return generatePassword();
-  }
-  
-
-  //create the password user sees with all the inputs compiled above in variable developPassword
-  var userPassword="";
-  for (var i = 1; i < passwordLength; i++) {
-    userPassword += developPassword.charAt(Math.floor(Math.random()*developPassword.length));
-    console.log(userPassword);
-  }
-    return userPassword;
-  }
-
-  
-  
   
   
 
