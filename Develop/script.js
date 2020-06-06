@@ -16,7 +16,7 @@ var spchar = ["!#$%^&*()?/\=+"]
 var lowalph =["abcdefghijklmnopqrstuvwxyz"]
 var uppalph =["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 var numbers =["0123456789"]
-var developPassword =""
+var developPassword = "";
 
 /*
   var spchar = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","["]
@@ -48,35 +48,36 @@ grabvar(spchar)
  
   //Password Upper Case question
   var passwordUpper = confirm("Do you want upper case letters in your password?");
-  if (passwordUpper) {
-    developPassword+=uppalph
-    console.log(developPassword)
+  if (passwordUpper==="true") {
+    developPassword+=uppalph;
+    console.log(developPassword);
   }
+  
   
 
   //Password Lower Case question
   var passwordLower = confirm("Do you want lower case letters in your password?");
-  if (passwordLower) {
-    developPassword+=lowalph
-    console.log(developPassword)
+  if (passwordLower==="true") {
+    developPassword+=lowalph;
+    console.log(developPassword);
   }
   
 
   //Password Upper Case question
   var passwordSpecial = confirm("Do you want special characters in your password?");
-  if (passwordSpecial) {
-    developPassword+=spchar
-    console.log(developPassword)
+  if (passwordSpecial==="true") {
+    developPassword+=spchar;
+    console.log(developPassword);
   }
   
 
   //Password Number question
   var passwordNumber = confirm("Do you want numbers in your password?");
-  if (passwordNumber) {
-    developPassword+=numbers
-    console.log(developPassword)
-
+  if (passwordNumber==="true") {
+    developPassword+=numbers;
+    console.log(developPassword);
   }
+  
 
   //check if user chose at least one character type
   if (developPassword === ""){
@@ -85,13 +86,13 @@ grabvar(spchar)
   }
   
 
-
-  var num="";
-  for (var i = 0; i < passwordLength; i++) {
-    num += developPassword.charAt(Math.floor(Math.random()*developPassword.length)+1);
-    console.log(num);
+  //create the password user sees with all the inputs compiled above in variable developPassword
+  var userPassword="";
+  for (var i = 1; i < passwordLength; i++) {
+    userPassword += developPassword.charAt(Math.floor(Math.random()*developPassword.length));
+    console.log(userPassword);
   }
-    return num
+    return userPassword;
   }
 
   
