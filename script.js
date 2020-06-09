@@ -77,7 +77,7 @@ var numbers =["0123456789"]
       num += developPassword.charAt(Math.floor(Math.random()*developPassword.length));
       console.log(num);
     }
-    return num
+    return num;
   }
 
   
